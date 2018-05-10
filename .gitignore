@@ -1,0 +1,19 @@
+.DS_STORE
+Thumbs.db
+
+.idea
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.vs
+
+# Dependencies
+node_modules
+
+# Compiled files
+bin
+obj
+scripts
+/**/wwwroot/dist

@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2000
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AureliaBase.Web", "AureliaBase.Web\AureliaBase.Web.csproj", "{81133AB8-110D-4101-99E8-CA3E8B4653BB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution", "Solution", "{40459778-2630-4A36-87A7-DF496EF2E364}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+		.gitattributes = .gitattributes
+		.gitignore = .gitignore
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{81133AB8-110D-4101-99E8-CA3E8B4653BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81133AB8-110D-4101-99E8-CA3E8B4653BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81133AB8-110D-4101-99E8-CA3E8B4653BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81133AB8-110D-4101-99E8-CA3E8B4653BB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {53E43EB9-4353-450E-B298-B1EF95E62F3C}
+	EndGlobalSection
+EndGlobal
