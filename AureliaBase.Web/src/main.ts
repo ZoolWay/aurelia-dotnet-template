@@ -5,6 +5,10 @@ import environment from './environment';
 import {PLATFORM} from 'aurelia-pal';
 import * as Bluebird from 'bluebird';
 
+import 'jquery';
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap';
+
 // remove out if you don't want a Promise polyfill (remove also from webpack.config.js)
 Bluebird.config({ warnings: { wForgottenReturn: false } });
 

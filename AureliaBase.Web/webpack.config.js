@@ -31,7 +31,7 @@ module.exports = ({production, server, extractCss, coverage, analyze} = {}) =>
     },
     entry: {
         app: ['aurelia-bootstrapper'],
-        vendor: ['bluebird','jquery','kendo-ui-core'],
+        vendor: ['bluebird','jquery','popper.js','bootstrap','kendo-ui-core'],
     },
     mode: production ? 'production' : 'development',
     output: {
