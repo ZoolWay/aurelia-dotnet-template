@@ -31,7 +31,7 @@ module.exports = ({production, server, extractCss, coverage, analyze} = {}) =>
     },
     entry: {
         app: ['aurelia-bootstrapper'],
-        vendor: ['bluebird'],
+        vendor: ['bluebird','jquery','kendo-ui-core'],
     },
     mode: production ? 'production' : 'development',
     output: {
@@ -84,6 +84,7 @@ module.exports = ({production, server, extractCss, coverage, analyze} = {}) =>
             { test: /\.json$/i, loader: 'json-loader' },
             // use Bluebird as the global Promise implementation:
             { test: /[\/\\]node_modules[\/\\]bluebird[\/\\].+\.js$/, loader: 'expose-loader?Promise' },
+            //{ test: /[\/\\]node_modules[\/\\]jquery[\/\\]dist[\/\\].+\.js$/, loader: 'expose-loader?jQuery' },
             // embed small images and fonts as Data Urls and larger ones as files:
             { test: /\.(png|gif|jpg|cur)$/i, loader: 'url-loader', options: { limit: 8192 } },
             {
@@ -112,7 +113,10 @@ module.exports = ({production, server, extractCss, coverage, analyze} = {}) =>
     plugins: [
         new AureliaPlugin(),
         new ProvidePlugin({
-            'Promise': 'bluebird'
+            'Promise': 'bluebird',
+            $: 'jquery',
+            jQuery: 'jquery',
+            'window.jQuery': 'jquery',
         }),
         new ModuleDependenciesPlugin({
             'aurelia-testing': ['./compile-spy', './view-spy']

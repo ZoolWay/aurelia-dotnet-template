@@ -11,6 +11,7 @@
   </ItemGroup>
   <ItemGroup>
     <!-- Files not to show in IDE -->
+    <None Remove="src\ku-controls\index.ts" />
     <None Remove="yarn.lock" />
   </ItemGroup>
   <ItemGroup>
@@ -18,6 +19,10 @@
   </ItemGroup>
   <ItemGroup>
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="src\ku-controls\ku-button.ts" />
+    <TypeScriptCompile Include="src\ku-controls\index.ts" />
   </ItemGroup>
   <Target Name="PublishRunWebpack" AfterTargets="ComputeFilesToPublish">
     <!-- As part of publishing, ensure the JS resources are freshly built in production mode -->
