@@ -5,7 +5,7 @@
         <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
         <ul class="navbar-nav px-3">
             <li class="nav-item text-nowrap">
-                <a class="nav-link" href="#">Sign out</a>
+                <a class="nav-link" click.delegate="logout()">Sign out</a>
             </li>
         </ul>
     </nav>
@@ -103,7 +103,30 @@
                     </div>
                 </div>
 
-                <canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas>
+                <h2>Characters</h2>
+                <div class="flex-wrap flex-md-nowrap">
+
+                    <ul>
+                        <li repeat.for="e of entries">${e.name}</li>
+                    </ul>
+                </div>
+
+                <h2>Auth Data</h2>
+                <div class="flex-wrap flex-md-nowrap">
+                    <div class="ui positive message">
+                        <div class="header">
+                            Logged in as:
+                        </div>
+                        <ul class="list">
+                            <li>Name: ${decodedToken.name}</li>
+                            <li>Username: ${decodedToken.preferred_username}</li>
+                            <li>Given Name: ${decodedToken.given_name}</li>
+                            <li>Family Name: ${decodedToken.family_name}</li>
+                            <li>Email: ${decodedToken.emails[0]}</li>
+                            <li>Token Will Expire: ${expires}</li>
+                        </ul>
+                    </div>
+                </div>
 
                 <h2>Section title</h2>
                 <div class="table-responsive">

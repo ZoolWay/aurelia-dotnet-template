@@ -30,8 +30,8 @@ module.exports = ({production, server, extractCss, coverage, analyze} = {}) =>
         modules: [srcDir, 'node_modules'],
     },
     entry: {
-        app: ['aurelia-bootstrapper'],
-        vendor: ['bluebird','jquery','popper.js','bootstrap','kendo-ui-core'],
+        app: ['aurelia-bootstrapper','aurelia-fetch-client'],
+        vendor: ['bluebird','jquery','popper.js','bootstrap','kendo-ui-core','jwt-decode','msal'],
     },
     mode: production ? 'production' : 'development',
     output: {

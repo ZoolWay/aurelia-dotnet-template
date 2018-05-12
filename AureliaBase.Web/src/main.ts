@@ -4,6 +4,7 @@ import {Aurelia} from 'aurelia-framework'
 import environment from './environment';
 import {PLATFORM} from 'aurelia-pal';
 import * as Bluebird from 'bluebird';
+import { Auth } from './auth';
 
 import 'jquery';
 import 'bootstrap/dist/css/bootstrap.css';
@@ -34,5 +35,17 @@ export function configure(aurelia: Aurelia) {
         aurelia.use.plugin(PLATFORM.moduleName('aurelia-testing'));
     }
 
-    aurelia.start().then(() => aurelia.setRoot(PLATFORM.moduleName('app')));
+    aurelia.start().then((a) => {
+        let auth: Auth = a.container.get(Auth);
+        setTimeout(() => {
+            auth.isAuthenticated()
+                .then(() => {
+                    aurelia.setRoot(PLATFORM.moduleName('app'));
+                    return;
+                })
+                .catch(() => {
+                    auth.login();
+                });
+        }, 200);
+    });
 }
