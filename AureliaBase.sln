@@ -10,6 +10,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution", "Solution", "{40
 		.editorconfig = .editorconfig
 		.gitattributes = .gitattributes
 		.gitignore = .gitignore
+		README.md = README.md
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AureliaBase.Azure.Api", "AureliaBase.Azure.Api\AureliaBase.Azure.Api.csproj", "{ABCED595-8E42-4759-AB55-9D944410858A}"
