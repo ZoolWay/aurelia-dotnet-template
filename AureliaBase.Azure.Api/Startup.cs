@@ -42,6 +42,11 @@ namespace AureliaBase.Azure.Api
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseCors(builder =>
+            {
+                builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
+            });
+
             app.UseAuthentication();
             app.UseMvc();
         }
