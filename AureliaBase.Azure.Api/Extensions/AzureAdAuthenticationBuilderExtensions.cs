@@ -32,6 +32,7 @@ namespace Microsoft.AspNetCore.Authentication
             {
                 options.Audience = _azureOptions.ClientId;
                 options.Authority = $"{_azureOptions.Instance}{_azureOptions.TenantId}";
+                options.TokenValidationParameters.ValidIssuer = $"{_azureOptions.Instance}{_azureOptions.TenantId}/v2.0"; // at least when using AAD
             }
 
             public void Configure(JwtBearerOptions options)
