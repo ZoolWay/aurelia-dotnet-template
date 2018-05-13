@@ -1,9 +1,11 @@
 ﻿import { HttpClient } from 'aurelia-fetch-client';
 import { autoinject } from 'aurelia-framework';
-import { azureAdConfig } from './settings';
+
 import * as jwt_decode from 'jwt-decode';
 import { UserAgentApplication } from 'msal';
 import { AuthenticationRequestParameters } from 'msal/lib-commonjs/AuthenticationRequestParameters';
+
+import { azureAdConfig } from './../settings';
 
 @autoinject
 export class Auth {

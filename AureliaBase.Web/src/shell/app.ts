@@ -1,11 +1,11 @@
 import { autoinject } from 'aurelia-framework';
 import { HttpClient } from 'aurelia-fetch-client';
 
-import '../vendor/fontawesome5/css/fontawesome-all.min.css'
+import '../../vendor/fontawesome5/css/fontawesome-all.min.css'
 
-import { apiConfig } from './settings';
-import { HttpConfig } from './http-config';
-import { Auth } from './auth';
+import { apiConfig } from './../settings';
+import { HttpConfig } from './../core/http-config';
+import { Auth } from './../core/auth';
 import { setTimeout } from 'timers';
 
 @autoinject
@@ -42,6 +42,15 @@ export class App {
                             this.expires.setUTCSeconds(exp);
                         })
                 });
+            this.httpClient
+                .fetch(apiConfig.service + 'appSettings')
+                .then((response) => {
+                    response.text()
+                        .then((data) => {
+                            console.info(data);
+                            debugger;
+                        });
+                })
         }, 2000);
     }
 

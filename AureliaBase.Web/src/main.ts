@@ -4,7 +4,7 @@ import {Aurelia} from 'aurelia-framework'
 import environment from './environment';
 import {PLATFORM} from 'aurelia-pal';
 import * as Bluebird from 'bluebird';
-import { Auth } from './auth';
+import { Auth } from './core/auth';
 
 import 'jquery';
 import 'bootstrap/dist/css/bootstrap.css';
@@ -40,7 +40,7 @@ export function configure(aurelia: Aurelia) {
         setTimeout(() => {
             auth.isAuthenticated()
                 .then(() => {
-                    aurelia.setRoot(PLATFORM.moduleName('app'));
+                    aurelia.setRoot(PLATFORM.moduleName('shell/app'));
                     return;
                 })
                 .catch(() => {

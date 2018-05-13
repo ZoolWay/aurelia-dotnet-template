@@ -2,7 +2,7 @@
 import { HttpClient } from 'aurelia-fetch-client';
 
 import { Auth } from './auth';
-import { apiConfig } from './settings';
+import { apiConfig } from './../settings';
 
 @autoinject
 export class HttpConfig {

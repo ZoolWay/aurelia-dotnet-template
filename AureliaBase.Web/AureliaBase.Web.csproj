@@ -24,8 +24,8 @@
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.0" />
   </ItemGroup>
   <ItemGroup>
-    <TypeScriptCompile Include="src\auth.ts" />
-    <TypeScriptCompile Include="src\http-config.ts" />
+    <TypeScriptCompile Include="src\core\auth.ts" />
+    <TypeScriptCompile Include="src\core\http-config.ts" />
     <TypeScriptCompile Include="src\ku-controls\ku-button.ts" />
     <TypeScriptCompile Include="src\ku-controls\index.ts" />
     <TypeScriptCompile Include="src\settings.ts" />
