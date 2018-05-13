@@ -2,8 +2,6 @@ import { autoinject } from 'aurelia-framework';
 import { Router, RouterConfiguration } from 'aurelia-router';
 import { PLATFORM } from 'aurelia-pal';
 
-import '../../vendor/fontawesome5/css/fontawesome-all.min.css'
-
 import { HttpConfig } from './../core/http-config';
 import { Auth } from './../core/auth';
 

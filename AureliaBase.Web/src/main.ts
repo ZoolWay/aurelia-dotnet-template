@@ -6,6 +6,7 @@ import * as Bluebird from 'bluebird';
 import environment from './environment';
 import { Auth } from './core/auth';
 
+import '../vendor/fontawesome5/css/fontawesome-all.min.css'
 import 'jquery';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap';
