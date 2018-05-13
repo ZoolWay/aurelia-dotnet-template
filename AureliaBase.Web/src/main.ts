@@ -2,7 +2,6 @@
 
 import { Aurelia } from 'aurelia-framework'
 import { PLATFORM } from 'aurelia-pal';
-import * as Bluebird from 'bluebird';
 import environment from './environment';
 import { Auth } from './core/auth';
 
@@ -10,9 +9,6 @@ import '../vendor/fontawesome5/css/fontawesome-all.min.css'
 import 'jquery';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap';
-
-// remove out if you don't want a Promise polyfill (remove also from webpack.config.js)
-Bluebird.config({ warnings: { wForgottenReturn: false } });
 
 export function configure(aurelia: Aurelia) {
     setup(aurelia);
