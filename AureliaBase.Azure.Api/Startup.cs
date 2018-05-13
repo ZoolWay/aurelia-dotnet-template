@@ -10,6 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using AureliaBase.Azure.Api.Extensions;
 
 namespace AureliaBase.Azure.Api
 {
@@ -32,6 +33,8 @@ namespace AureliaBase.Azure.Api
             .AddAzureAdBearer(options => Configuration.Bind("AzureAd", options));
 
             services.AddMvc();
+
+            services.Configure<AzureBlobStorageOptions>(options => Configuration.Bind("AzureBlobStorage", options));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
