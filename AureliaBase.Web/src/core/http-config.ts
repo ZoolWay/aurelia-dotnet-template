@@ -16,37 +16,34 @@ export class HttpConfig {
 
     public configure(): void {
         let a = this.auth;
-        this
-            .http
-            .configure(httpConfig => {
-                httpConfig
-                    .withDefaults({
-                        headers: {
-                            'Accept': 'application/json',
-                            'Content-Type': 'application/json'
-                        }
-                    })
-                    .withInterceptor({
-                        request(request) {
-                            if (!request.url.startsWith(apiConfig.service)) return request; // intercept only api-call to us
-                            if (a.authenticated) {
-                                let token = a.getToken();
-                                token = `Bearer ${token}`;
-                                request
-                                    .headers
-                                    .append('Authorization', token);
-                            }
+        this.http.configure(httpConfig => {
+            httpConfig.withDefaults({
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                }
+            })
+            .withInterceptor({
+                request(request) {
+                    if (!request.url.startsWith(apiConfig.service)) return request; // intercept only api-call to us
+                    if (a.isAuthenticated) {
+                        let token = a.getToken();
+                        token = `Bearer ${token}`;
+                        request
+                            .headers
+                            .append('Authorization', token);
+                    }
 
-                            return request;
-                        },
-                        response(response) {
-                            if (!response.url.startsWith(apiConfig.service)) return response; // intercept only api-call to us
-                            if (response.status === 401) {
-                                //a.login();
-                            }
-                            return response;
-                        }
-                    });
+                    return request;
+                },
+                response(response) {
+                    if (!response.url.startsWith(apiConfig.service)) return response; // intercept only api-call to us
+                    if (response.status === 401) {
+                        //a.login();
+                    }
+                    return response;
+                }
             });
+        });
     }
 }

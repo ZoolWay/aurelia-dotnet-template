@@ -1,0 +1,23 @@
+﻿<template>
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column text-center">
+        <main role="main" class="inner cover my-auto">
+            <h1 class="cover-heading">AureliaBase</h1>
+            <div if.bind="state == 'detecting'">
+                <p class="lead">Checking authentication</p>
+                <p class="lead"><i class="fas fa-spinner fa-spin"></i></p>
+            </div>
+            <div if.bind="state == 'not-authed'">
+                <p class="lead">Please login</p>
+                <p class="lead">
+                    <a click.delegate="login()" class="btn btn-lg btn-secondary">Login</a>
+                </p>
+            </div>
+            <div if.bind="state == 'authed'">
+                <p class="lead">You are logged in and can continue</p>
+                <p class="lead">
+                    <a route-href="route: dashboard" class="btn btn-lg btn-secondary">Open Dashboard</a>
+                </p>
+            </div>
+        </main>
+    </div>
+</template>

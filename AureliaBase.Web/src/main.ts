@@ -1,9 +1,9 @@
 /// <reference types="aurelia-loader-webpack/src/webpack-hot-interface"/>
-// we want font-awesome to load as soon as possible to show the fa-spinner
-import {Aurelia} from 'aurelia-framework'
-import environment from './environment';
-import {PLATFORM} from 'aurelia-pal';
+
+import { Aurelia } from 'aurelia-framework'
+import { PLATFORM } from 'aurelia-pal';
 import * as Bluebird from 'bluebird';
+import environment from './environment';
 import { Auth } from './core/auth';
 
 import 'jquery';
@@ -14,6 +14,11 @@ import 'bootstrap';
 Bluebird.config({ warnings: { wForgottenReturn: false } });
 
 export function configure(aurelia: Aurelia) {
+    setup(aurelia);
+    launch(aurelia);
+}
+
+function setup(aurelia: Aurelia): void {
     aurelia.use
         .standardConfiguration()
         .feature(PLATFORM.moduleName('resources/index'))
@@ -34,18 +39,17 @@ export function configure(aurelia: Aurelia) {
     if (environment.testing) {
         aurelia.use.plugin(PLATFORM.moduleName('aurelia-testing'));
     }
+}
 
-    aurelia.start().then((a) => {
-        let auth: Auth = a.container.get(Auth);
-        setTimeout(() => {
-            auth.isAuthenticated()
-                .then(() => {
-                    aurelia.setRoot(PLATFORM.moduleName('shell/app'));
-                    return;
-                })
-                .catch(() => {
-                    auth.login();
-                });
-        }, 200);
-    });
+async function launch(aurelia: Aurelia): Promise<void> {
+    try {
+        await aurelia.start();
+        let auth: Auth = aurelia.container.get(Auth);
+        let authed: boolean = await auth.checkIsAuthenticated();
+        // normally it is not possible to be authed here but the auth system does some initial steps
+        // also we could enforce auth.login() here but that would force auth on start
+        aurelia.setRoot(PLATFORM.moduleName('shell/app'));
+    } catch (ex) {
+        console.error('Launch error:', ex);
+    }
 }
